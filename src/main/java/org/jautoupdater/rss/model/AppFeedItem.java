@@ -13,6 +13,8 @@ public class AppFeedItem {
     String description;
     String publishDate;
     String releaseNotesLink;
+    String author;
+    String guid;
     AppFeedUpdate update;
 
     /**
@@ -21,15 +23,19 @@ public class AppFeedItem {
      * @param description The description of the app feed item
      * @param publishDate The publish date of the app feed item
      * @param notesLink A link to the update notes
+     * @param author The author of the app feed item
+     * @param guid The GUID of the app feed item
      * @param update The update file information held in an {@link
      * AppFeedUpdate}
      */
-    public AppFeedItem(String title, String description, String publishDate, String notesLink, AppFeedUpdate update) {
+    public AppFeedItem(String title, String description, String publishDate, String notesLink, String author, String guid, AppFeedUpdate update) {
         this.title = title;
         this.description = description;
         this.publishDate = publishDate;
         this.releaseNotesLink = notesLink;
         this.update = update;
+        this.author = author;
+        this.guid = guid;
     }
 
     /**
@@ -62,6 +68,22 @@ public class AppFeedItem {
      */
     public String getReleaseNotesLink() {
         return releaseNotesLink;
+    }
+
+    /**
+     * Get the author of the RSS app feed.
+     * @return The String value of the author's name
+     */
+    public String getAuthor() {
+        return author;
+    }
+
+    /**
+     * Get the GUID of the RSS app feed.
+     * @return The String value of the GUID
+     */
+    public String getGUID() {
+        return guid;
     }
 
      /**

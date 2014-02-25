@@ -18,6 +18,8 @@ public class AppFeed {
     final String link;
     final String description;
     final String language;
+    final String copyright;
+    final String pubdate;
 
     // Create a list of AppFeedItems
     public List<AppFeedItem> items = new ArrayList<AppFeedItem>();
@@ -29,11 +31,13 @@ public class AppFeed {
      * @param description The description of the app feed
      * @param language The language the app feed reports in
      */
-    public AppFeed(String title, String link, String description, String language) {
+    public AppFeed(String title, String link, String description, String language, String copyright, String pubdate) {
         this.title = title;
         this.link = link;
         this.description = description;
         this.language = language;
+        this.copyright = copyright;
+        this.pubdate = pubdate;
     }
     
     /**
@@ -66,5 +70,21 @@ public class AppFeed {
      */
     public String getLanguage() {
         return this.language;
+    }
+
+    /**
+     * Get the copyright of the app rss feed.
+     * @return The String copyright
+     */
+    public String getCopyright() {
+        return this.copyright;
+    }
+
+    /**
+     * Get the publish date of the app rss feed.
+     * @return The String publish date
+     */
+    public String getPublishDate() {
+        return this.pubdate;
     }
 }

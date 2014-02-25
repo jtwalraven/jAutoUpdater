@@ -11,9 +11,9 @@ import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.events.Characters;
 import javax.xml.stream.events.XMLEvent;
 
-import org.jautoupdater.model.AppFeed;
-import org.jautoupdater.model.AppFeedItem;
-import org.jautoupdater.model.AppFeedUpdate;
+import org.jautoupdater.rss.model.AppFeed;
+import org.jautoupdater.rss.model.AppFeedItem;
+import org.jautoupdater.rss.model.AppFeedUpdate;
 
 /**
 * Reads the app RSS feed and puts the data into model class.
@@ -120,7 +120,7 @@ public class AppFeedReader {
                     }
                 } else if (event.isEndElement()) {
                     if (event.asEndElement().getName().getLocalPart() == (ITEM)) {
-                        AppFeedItem feedItem = new AppFeedItem(author, description, guid, link, title);
+                        AppFeedItem feedItem = new AppFeedItem(title, description, pubdate, null, author, guid, null);
                         feed.items.add(feedItem);
                         event = eventReader.nextEvent();
                         continue;
