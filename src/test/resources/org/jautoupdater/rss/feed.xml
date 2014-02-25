@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:jautoupdater="http://www.andymatuschak.org/xml-namespaces/jautoupdater" xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <channel>
+        <title>Test AppFeed</title>
+        <link>http://andymatuschak.org/files/sparkletestcast.xml</link>
+        <description>Test AppFeed that allows for the dowload of the latest version
+            of test files.</description>
+        <language>en</language>
+        <item>
+            <title>Update item title</title>
+            <description>This is the update items description.</description>
+            <pubDate>Tue, 25 Feb 2014 19:20:11 +0000</pubDate>
+            <jautoupdater:releaseNotesLink>TODO: Notes link here</jautoupdater:releaseNotesLink>
+            <enclosure url="http://andymatuschak.org/files/Sparkle Test App_2.0.zip" 
+                jautoupdater:version="0.1" length="1600000"
+                type="application/octet-stream" jautoupdater:dsaSignature="invalid" />
+        </item>
+    </channel>
+</rss>

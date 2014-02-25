@@ -1,4 +1,4 @@
-package org.jautoupdater.rss;
+package org.jautoupdater.rss.model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +13,7 @@ import java.util.List;
 * @author Jeffrey Walraven
 */
 public class AppFeed {
+
     final String title;
     final String link;
     final String description;
