@@ -15,7 +15,7 @@
                 <version>UpdateVersion</version>
                 <signature>UpdateSignature</signature>
             </update>
-            <enclosure url="http://jtwalraven.github.io/jAutoUpdater/" 
+            <enclosure url="http://jtwalraven.github.io/jAutoUpdater/files/example-feed.xml" 
                 length="1600000"
                 type="application/octet-stream"/>
         </item>
