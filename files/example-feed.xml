@@ -12,6 +12,8 @@
             <description>UpdateDescription</description>
             <pubDate>Tue, 25 Feb 2014 19:20:11 +0000</pubDate>
             <releaseNotesLink>UpdateReleaseNotesLink</releaseNotesLink>
+            <author>Jeffrey Walraven</author>
+            <guid>update1</guid>
             <update>
                 <downloadLink>UpdateLink</downloadLink>
                 <version>UpdateVersion</version>
