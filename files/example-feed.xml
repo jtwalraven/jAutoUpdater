@@ -5,6 +5,8 @@
         <link>FeedLink</link>
         <description>FeedDescription</description>
         <language>en</language>
+        <copyright>None</copyright>         
+        <pubDate>Tue, 25 Feb 2014 19:20:11 +0000</pubDate>
         <item>
             <title>UpdateTitle</title>
             <description>UpdateDescription</description>
