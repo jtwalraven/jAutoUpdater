@@ -7,4 +7,5 @@
 *.ear
 
 # Gradle Files #
+.gradle/
 build/
