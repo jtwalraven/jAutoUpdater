@@ -35,6 +35,8 @@ public class AppFeedReader {
     static final String ITEM = "item";
     static final String PUB_DATE = "pubDate";
     static final String GUID = "guid";
+    static final String NOTES_LINK = "releaseNotesLink";
+    static final String UPDATE_ITEM = "update";
 
     final URL url;
 
@@ -66,6 +68,8 @@ public class AppFeedReader {
            String author = "";
            String pubdate = "";
            String guid = "";
+           String notes_link = "";
+           AppFeedUpdate update = null;
 
            // Create a new XMLInputFactory
            XMLInputFactory inputFactory = XMLInputFactory.newInstance();
@@ -92,6 +96,9 @@ public class AppFeedReader {
                         case TITLE:
                             title = getCharacterData(event, eventReader);
                             break;
+                        case LINK:
+                            link = getCharacterData(event, eventReader);
+                            break;
                         case DESCRIPTION:
                             description = getCharacterData(event, eventReader);
                             break;
@@ -117,10 +124,42 @@ public class AppFeedReader {
                         case GUID:
                             guid = getCharacterData(event, eventReader);
                             break;
+                        case NOTES_LINK:
+                            notes_link = getCharacterData(event, eventReader);
+                            break;
+                        case UPDATE_ITEM:
+                            String downloadLink = "";
+                            String version = "";
+                            String signature = "";
+                            String tagPart = "";
+
+                            while (tagPart != UPDATE_ITEM) {
+                                event = eventReader.nextEvent();
+                                if (event.isEndElement()) {
+                                    tagPart = event.asEndElement().getName().getLocalPart();
+                                }
+
+                                if (event.isStartElement()) {
+                                    String updatePart = event.asStartElement().getName().getLocalPart();
+                                    switch (updatePart) {
+                                        case "downloadLink":
+                                            downloadLink = getCharacterData(event, eventReader);
+                                            break;
+                                        case "version":
+                                            version = getCharacterData(event, eventReader);
+                                            break;
+                                        case "signature":
+                                            signature = getCharacterData(event, eventReader);
+                                            break;
+                                    }
+                                }
+                            }
+                            // Create the AppFeedUpdate
+                            update = new AppFeedUpdate(downloadLink, version, signature);
                     }
                 } else if (event.isEndElement()) {
                     if (event.asEndElement().getName().getLocalPart() == (ITEM)) {
-                        AppFeedItem feedItem = new AppFeedItem(title, description, pubdate, null, author, guid, null);
+                        AppFeedItem feedItem = new AppFeedItem(title, description, pubdate, notes_link, author, guid, update);
                         feed.items.add(feedItem);
                         event = eventReader.nextEvent();
                         continue;

@@ -49,4 +49,13 @@ public class AppFeedUpdate {
     public String getSignature() {
         return signature;
     }
+
+    @Override
+    public String toString() {
+        String returnString = "AppFeedUpdate (";
+        returnString += downloadLink + ", ";
+        returnString += version + ", ";
+        returnString += signature + ")";
+        return returnString;
+    }
 }

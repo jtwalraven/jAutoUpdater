@@ -87,4 +87,18 @@ public class AppFeed {
     public String getPublishDate() {
         return this.pubdate;
     }
+
+    @Override
+    public String toString() {
+        // Add all the values to a String and return it
+        String returnString = "AppFeed (";
+        returnString += title + ", ";
+        returnString += link + ", ";
+        returnString += description + ", ";
+        returnString += language + ", ";
+        returnString += copyright + ", ";
+        returnString += pubdate;
+        returnString += ")";
+        return returnString;
+    }
 }

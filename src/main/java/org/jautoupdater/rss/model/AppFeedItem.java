@@ -94,4 +94,16 @@ public class AppFeedItem {
     public AppFeedUpdate getAppFeedUpdate() {
         return update;
     }
+
+    @Override
+    public String toString() {
+        String returnString = "AppFeedItem (";
+        returnString += title + ", ";
+        returnString += description + ", ";
+        returnString += publishDate + ", ";
+        returnString += releaseNotesLink + ", ";
+        returnString += author + ", ";
+        returnString += guid + ")";
+        return returnString;
+    }
 }
