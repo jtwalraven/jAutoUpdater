@@ -14,4 +14,7 @@ dependencies {
 
     // Add the JUnit testing framework
     testCompile "junit:junit:4.11"
+
+    // Add JUnit addons
+    testCompile "junit-addons:junit-addons:1.4"
 }
