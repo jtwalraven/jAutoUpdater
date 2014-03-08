@@ -14,15 +14,15 @@ import java.io.IOException;
 /**
 * Signs data with a signature generated from a DSA private key.
 * This private key must be specified. This class is meant to
-* be run from the command line. "USAGE: DSASign privateKey fileToSign"
+* be run from the command line. "USAGE: DSASign privateKey fileToSign signature"
 *
 * @author Jeffrey Walraven
 */
 public class DSASign {
 
     public static void main(String[] args) {
-        if (args.length != 2) {
-            System.out.println("Usage: DSASign privateKey fileToSign");
+        if (args.length != 3) {
+            System.out.println("Usage: DSASign privateKey fileToSign signature");
         } else try {
             File privateKey = new File(args[0]);
             File unsignedFile = new File(args[1]);
@@ -46,6 +46,14 @@ public class DSASign {
                 signer.signData(args[1], sig);
 
                 System.out.println("File signed successfully!");
+
+                byte[] realSig = sig.sign();
+
+                FileOutputStream sigFOS = new FileOutputStream(args[2]);
+                sigFOS.write(realSig);
+                sigFOS.close();
+
+                System.out.println("Signature exported successfully!");
             } else {
                 if (!privateKey.exists()) {
                     System.out.println("Error: The private key file you specified does not exist.");
