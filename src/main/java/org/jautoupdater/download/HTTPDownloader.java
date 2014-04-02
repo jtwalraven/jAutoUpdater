@@ -48,8 +48,9 @@ public class HTTPDownloader {
             }
 
             // IMPORTANT: Make sure to flush and close streams
-            bos.flush();
             bis.close();
+            bos.flush();
+            bos.close();
 
             // Return successful
             return true;
